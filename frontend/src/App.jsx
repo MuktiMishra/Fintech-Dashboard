@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Menu } from "lucide-react";
 import Sidebar from "./layout/Sidebar";
 import Dashboard from "./layout/dashboard";
+import Chart from "./layout/Chart";
 
 export default function App() {
   const [open, setOpen] = useState(false);
@@ -35,6 +36,7 @@ export default function App() {
       {/* Main content */}
       <main className="flex-1 p-4 md:p-6">
         <Dashboard />
+        
       </main>
     </div>
   );
