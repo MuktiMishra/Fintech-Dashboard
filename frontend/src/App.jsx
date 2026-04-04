@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Menu } from "lucide-react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Sidebar from "./layout/Sidebar";
-import Dashboard from "./layout/dashboard";
-import TransactionsPage from "./layout/Transactions";
-import InsightsPage from "./layout/InsightsPage";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./pages/Dashboard";
+import TransactionsPage from "./pages/Transactions";
+import InsightsPage from "./pages/InsightsPage";
+import LandingPage from "./pages/LandingPage";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 function AppLayout() {
   const [open, setOpen] = useState(false);
@@ -26,7 +29,10 @@ function AppLayout() {
 
       <main className="flex-1 p-4 md:p-6">
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/transactions" element={<TransactionsPage />} />
           <Route path="/insights" element={<InsightsPage />} />
         </Routes>

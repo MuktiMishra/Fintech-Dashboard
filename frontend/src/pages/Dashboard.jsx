@@ -1,8 +1,8 @@
 import React from 'react'
-import Chart from './Chart';
-import ExpensePieChart from './ExpensePieChart';
-import CardDisplay from './Card';
-import RecentTransactions from './RecentTransactions';
+import Chart from '../components/Chart';
+import ExpensePieChart from '../components/ExpensePieChart';
+import CardDisplay from '../components/Card';
+import RecentTransactions from '../components/RecentTransactions';
 
 const Dashboard = () => {
   return (
