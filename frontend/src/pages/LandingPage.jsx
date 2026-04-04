@@ -11,21 +11,18 @@ import {
 export default function LandingPage() {
   return (
     <div className="min-h-screen overflow-hidden bg-black text-white relative">
-      {/* background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.22),transparent_28%),radial-gradient(circle_at_top_right,rgba(37,99,235,0.18),transparent_30%),radial-gradient(circle_at_bottom,rgba(29,78,216,0.14),transparent_32%)]" />
       <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,rgba(59,130,246,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.12)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
-      {/* glow blobs */}
       <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-blue-500/20 blur-[120px]" />
       <div className="absolute top-0 right-0 h-[420px] w-[420px] rounded-full bg-cyan-500/10 blur-[140px]" />
       <div className="absolute bottom-0 left-1/3 h-[320px] w-[320px] rounded-full bg-blue-700/10 blur-[130px]" />
 
       <div className="relative z-10">
-        {/* navbar */}
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-blue-700 text-white font-bold text-xl shadow-lg shadow-blue-500/20">
-              Z
+            <div className="flex h-11 w-11 items-center justify-center">
+              <img src="/zorvyn.png" alt="logo" />
             </div>
             <h1 className="text-2xl font-semibold tracking-tight">Zorvyn</h1>
           </div>
@@ -61,16 +58,9 @@ export default function LandingPage() {
           </div>
         </nav>
 
-        {/* hero */}
-        <section className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 pb-16 pt-8 sm:px-6 lg:grid-cols-2 lg:px-8 lg:pt-16">
-          {/* left */}
-          <div className="max-w-2xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/10 bg-blue-500/10 px-4 py-2 text-sm text-blue-200 backdrop-blur-xl">
-              <span className="h-2 w-2 rounded-full bg-blue-400" />
-              Smart. Secure. Modern Fintech Platform.
-            </div>
-
-            <h2 className="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+        <section className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-8 px-4 pb-8 pt-4 sm:px-6 lg:grid-cols-2 lg:px-8 lg:pt-8 mt-5">
+          <div className="max-w-2xl lg:-mt-4">
+            <h2 className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-3xl lg:text-5xl">
               Gain Clarity
               <br />
               Take Control
@@ -79,13 +69,13 @@ export default function LandingPage() {
               <span className="text-blue-400"> Zorvyn</span>
             </h2>
 
-            <p className="mt-8 max-w-xl text-base leading-8 text-white/65 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-8 text-white/65 sm:text-lg">
               A modern fintech platform built to help you track spending, manage
               accounts, monitor investments, and understand your financial
               health through one clean dashboard.
             </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 to="/signup"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 px-7 py-4 text-sm font-medium text-white hover:opacity-90"
@@ -99,7 +89,7 @@ export default function LandingPage() {
               </button>
             </div>
 
-            <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-blue-400/10 bg-blue-500/5 p-4 backdrop-blur-xl">
                 <Wallet className="mb-3 text-blue-300" size={20} />
                 <p className="text-sm font-medium">Account Management</p>
@@ -126,12 +116,10 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* right */}
-          <div className="relative">
+          <div className="relative lg:-mt-2">
             <div className="absolute -inset-8 rounded-[40px] bg-blue-500/10 blur-3xl" />
 
             <div className="relative rounded-[32px] border border-blue-400/10 bg-[#050816]/90 p-4 shadow-2xl shadow-blue-950/40 backdrop-blur-2xl">
-              {/* top search */}
               <div className="mb-4 flex items-center gap-3 rounded-2xl border border-blue-400/10 bg-blue-500/[0.03] px-4 py-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-400 to-cyan-500 text-white font-bold">
                   Z
@@ -144,7 +132,6 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* big chart */}
               <div className="rounded-[28px] border border-blue-400/10 bg-blue-500/[0.02] p-5">
                 <div className="mb-5 flex items-start justify-between gap-4">
                   <div>
@@ -211,7 +198,6 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* bottom cards */}
               <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div className="rounded-[24px] border border-blue-400/10 bg-blue-500/[0.03] p-5">
                   <p className="text-sm text-white/50">Balance</p>

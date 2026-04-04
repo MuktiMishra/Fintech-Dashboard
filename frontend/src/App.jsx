@@ -8,12 +8,14 @@ import InsightsPage from "./pages/InsightsPage";
 import LandingPage from "./pages/LandingPage";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import CardsPage from "./pages/CardsPage";
 
-function AppLayout() {
+function DashboardLayout({ children }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="min-h-screen w-full bg-[#0D1117] text-white md:flex">
+      {/* mobile header */}
       <header className="md:hidden flex items-center justify-between px-4 py-4 border-b border-white/10 bg-[#11141A]">
         <div className="flex items-center gap-2">
           <div className="h-9 w-9 rounded-lg bg-white"></div>
@@ -25,18 +27,10 @@ function AppLayout() {
         </button>
       </header>
 
+      {/* sidebar only here */}
       <Sidebar open={open} setOpen={setOpen} />
 
-      <main className="flex-1 p-4 md:p-6">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/transactions" element={<TransactionsPage />} />
-          <Route path="/insights" element={<InsightsPage />} />
-        </Routes>
-      </main>
+      <main className="flex-1 p-4 md:p-6">{children}</main>
     </div>
   );
 }
@@ -44,7 +38,46 @@ function AppLayout() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AppLayout />
+      <Routes>
+        {/* public pages */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        {/* dashboard pages with sidebar */}
+        <Route
+          path="/dashboard"
+          element={
+            <DashboardLayout>
+              <Dashboard />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/transactions"
+          element={
+            <DashboardLayout>
+              <TransactionsPage />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/insights"
+          element={
+            <DashboardLayout>
+              <InsightsPage />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/cards"
+          element={
+            <DashboardLayout>
+              <CardsPage />
+            </DashboardLayout>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }

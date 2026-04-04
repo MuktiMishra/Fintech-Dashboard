@@ -16,44 +16,44 @@ export default function Signup() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#0D1117] px-4">
       <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#111827] p-6 sm:p-8">
-        <h2 className="text-2xl font-bold">Create Account</h2>
-        <p className="mt-2 text-sm text-slate-400">
+        <h2 className="text-2xl font-bold text-white">Create Account</h2>
+        <p className="mt-2 text-sm text-white">
           Sign up to start managing your finances.
         </p>
 
         <form onSubmit={handleSignup} className="mt-6 space-y-4">
           <div>
-            <label className="mb-2 block text-sm text-slate-300">Full Name</label>
+            <label className="mb-2 block text-sm text-white">Full Name</label>
             <input
               type="text"
               placeholder="Enter full name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
+              className="w-full text-white rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
               required
             />
           </div>
 
           <div>
-            <label className="mb-2 block text-sm text-slate-300">Email</label>
+            <label className="mb-2 block text-sm text-white">Email</label>
             <input
               type="email"
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
+              className="w-full text-white rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
               required
             />
           </div>
 
           <div>
-            <label className="mb-2 block text-sm text-slate-300">Password</label>
+            <label className="mb-2 block text-sm text-white">Password</label>
             <input
               type="password"
               placeholder="Create password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
+              className="w-full text-white rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
               required
             />
           </div>
@@ -66,7 +66,7 @@ export default function Signup() {
           </button>
         </form>
 
-        <p className="mt-5 text-center text-sm text-slate-400">
+        <p className="mt-5 text-center text-sm text-white">
           Already have an account?{" "}
           <Link to="/login" className="text-blue-400 hover:text-blue-300">
             Login
@@ -75,7 +75,7 @@ export default function Signup() {
 
         <Link
           to="/"
-          className="mt-4 block w-full rounded-xl border border-white/10 py-3 text-center hover:bg-white/5"
+          className="mt-4 text-white block w-full rounded-xl border border-white/10 py-3 text-center hover:bg-white/5"
         >
           Back to Home
         </Link>

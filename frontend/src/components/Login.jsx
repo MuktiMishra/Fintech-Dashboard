@@ -15,8 +15,8 @@ export default function Login() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#0D1117] px-4">
       <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#111827] p-6 sm:p-8">
-        <h2 className="text-2xl font-bold">Login</h2>
-        <p className="mt-2 text-sm text-slate-400">
+        <h2 className="text-2xl text-white font-bold">Login</h2>
+        <p className="mt-2 text-sm text-white">
           Enter your credentials to continue.
         </p>
 
@@ -28,7 +28,7 @@ export default function Login() {
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
+              className="w-full text-white rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
               required
             />
           </div>
@@ -40,7 +40,7 @@ export default function Login() {
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
+              className="w-full text-white rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3 outline-none focus:border-blue-500"
               required
             />
           </div>
@@ -62,7 +62,7 @@ export default function Login() {
 
         <Link
           to="/"
-          className="mt-4 block w-full rounded-xl border border-white/10 py-3 text-center hover:bg-white/5"
+          className="mt-4 text-white block w-full rounded-xl border border-white/10 py-3 text-center hover:bg-white/5"
         >
           Back to Home
         </Link>
