@@ -1,4 +1,5 @@
 import { Wifi, CreditCard } from "lucide-react";
+import React from "react";
 
 export default function Card({
   brand = "VISA",

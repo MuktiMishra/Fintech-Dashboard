@@ -10,8 +10,7 @@ export default function Login() {
     e.preventDefault();
     alert(`Mock Login Success\nEmail: ${email}`);
     navigate("/dashboard");
-  };
-
+  }; //mock login 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#0D1117] px-4">
       <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#111827] p-6 sm:p-8">

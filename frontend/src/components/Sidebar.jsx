@@ -42,7 +42,7 @@ export default function Sidebar({ open, setOpen }) {
 
       <nav className="space-y-2">
         {items.map((item) => {
-          const Icon = item.Icon;
+          const Icon = item.Icon; //sidebar icon
 
           return (
             <NavLink
@@ -52,7 +52,7 @@ export default function Sidebar({ open, setOpen }) {
               className={({ isActive }) =>
                 `w-full flex items-center gap-3 rounded-2xl px-3 py-3 transition ${
                   isActive
-                    ? "bg-[#171B22] text-[#8BFF3D] border border-[#2A313D]"
+                    ? "bg-[#171B22] text-[#3d6aff] border border-[#2A313D]"
                     : "text-[#A7B0BE] hover:bg-[#171B22] hover:text-white"
                 }`
               }

@@ -10,7 +10,7 @@ export default function Signup() {
   const handleSignup = (e) => {
     e.preventDefault();
     alert(`Mock Signup Success\nWelcome, ${name}`);
-    navigate("/dashboard");
+    navigate("/dashboard"); //mock signup
   };
 
   return (
@@ -19,7 +19,7 @@ export default function Signup() {
         <h2 className="text-2xl font-bold text-white">Create Account</h2>
         <p className="mt-2 text-sm text-white">
           Sign up to start managing your finances.
-        </p>
+        </p> 
 
         <form onSubmit={handleSignup} className="mt-6 space-y-4">
           <div>
