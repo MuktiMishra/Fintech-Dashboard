@@ -4,7 +4,7 @@ import {
   Cell,
   Tooltip,
   ResponsiveContainer,
-  Legend
+  Legend,
 } from "recharts";
 
 const data = [
@@ -19,30 +19,33 @@ const COLORS = ["#3b82f6", "#22c55e", "#f59e0b", "#ef4444", "#8b5cf6"];
 
 export default function ExpensePieChart() {
   return (
-    <div className="bg-[#0f172a] p-6 rounded-2xl text-white w-full h-90">
-      <h2 className="text-lg font-semibold">Expense Breakdown</h2>
+    <div className="bg-[#0f172a] p-4 sm:p-6 rounded-2xl text-white w-full h-full">
+      <h2 className="text-base sm:text-lg font-semibold mb-6">
+        Expense Breakdown
+      </h2>
 
-      <ResponsiveContainer>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            outerRadius={100}
-            innerRadius={60}   // 👈 makes it donut style (modern look)
-            dataKey="value"
-            paddingAngle={5}
-          >
-            {data.map((entry, index) => (
-              <Cell key={index} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
+      <div className="w-full h-[260px] sm:h-[300px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="45%"
+              innerRadius={45}
+              outerRadius={75}
+              paddingAngle={4}
+              dataKey="value"
+            >
+              {data.map((entry, index) => (
+                <Cell key={index} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
 
-          <Tooltip />
-          <Legend />
-          
-        </PieChart>
-      </ResponsiveContainer>
+            <Tooltip />
+            <Legend verticalAlign="bottom" height={36} />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }

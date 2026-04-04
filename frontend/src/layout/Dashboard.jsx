@@ -1,38 +1,50 @@
 import React from 'react'
 import Chart from './Chart';
 import ExpensePieChart from './ExpensePieChart';
+import CardDisplay from './Card';
+import RecentTransactions from './RecentTransactions';
 
 const Dashboard = () => {
   return (
-    <div className='flex flex-col'>
-      <h1 className='text-lg font-bold text-white m-4'>Hello Mukti!</h1>
-      <div className='flex lg:flex-row flex-col  gap-4 text-white'>
-       <div className='flex gap-4 text-white'>
-         <div className='w-60 h-45 bg-gray-800 text-white text-center p-2 rounded-xl'>
-          Total Transaction Of the Month
+    <div className='flex flex-col w-full p-3 sm:p-4'>
+      <h1 className='text-lg sm:text-xl font-bold text-white mb-4'>Hello Mukti!</h1>
+
+      {/* Top cards */}
+      <div className='flex flex-col gap-4 text-white'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4'>
+          <div className='w-full min-h-[100px] bg-gray-800 text-center p-4 rounded-xl'>
+            Total Transaction Of the Month
+          </div>
+          <div className='w-full min-h-[100px] bg-gray-800 text-center p-4 rounded-xl'>
+            Total Transaction Of the Month
+          </div>
+          <div className='w-full min-h-[100px] bg-gray-800 text-center p-4 rounded-xl'>
+            Total Transaction Of the Month
+          </div>
+          <div className='w-full min-h-[100px] bg-gray-800 text-center p-4 rounded-xl'>
+            Total Transaction Of the Month
+          </div>
         </div>
-        <div className='w-60 h-45 bg-gray-800 text-white text-center p-2 rounded-xl'>
-          Total Transaction Of the Month 
-        </div>
-        {/* abh */}
-       </div>
-        <div className='flex gap-4 text-white'>
-          <div className='w-60 h-45 bg-gray-800 text-white text-center p-2 rounded-xl'>
-          Total Transaction Of the Month
-        </div>
-        <div className='w-60 h-45 bg-gray-800 text-white text-center p-2 rounded-xl'>
-          Total Transaction Of the Month
-        </div>
-        </div>
-        
       </div>
-      <div className='flex flex-col lg:flex-row'>
-        <div className='m-2 h-auto w-auto lg:h-65 lg:w-180 items-center justify-center'>
-        {/* Charts display honge idar */}
-        <Chart />
+
+      {/* Charts */}
+      <div className='flex flex-col xl:flex-row gap-4 mt-4'>
+        <div className='w-full xl:flex-1 min-h-[300px]'>
+          <Chart />
         </div>
-        <div className='mt-2 lg:h-65 lg:w-70 h-auto w-auto'>
+
+        <div className='w-full xl:w-[380px] min-h-[300px]'>
           <ExpensePieChart />
+        </div>
+      </div>
+
+      {/* Bottom section */}
+      <div className='flex flex-col lg:flex-row w-full gap-4 mt-4'>
+        <div className='w-full lg:w-[380px] xl:w-[420px]'>
+          <CardDisplay />
+        </div>
+        <div className='w-full bg-[#0f172a] rounded-2xl p-4 text-white min-h-[200px]'>
+          <RecentTransactions />
         </div>
       </div>
     </div>

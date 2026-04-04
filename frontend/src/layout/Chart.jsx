@@ -36,14 +36,11 @@ export default function ActivityChart() {
   const data = view === "monthly" ? monthlyData : yearlyData;
 
   return (
-    <div className="bg-[#0f172a] p-6 rounded-2xl text-white">
-      
-      {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Activity Summary</h2>
+    <div className="bg-[#0f172a] p-4 sm:p-6 rounded-2xl text-white h-full">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-4">
+        <h2 className="text-base sm:text-lg font-semibold">Activity Summary</h2>
 
-        {/* Toggle Buttons */}
-        <div className="flex bg-[#1e293b] rounded-lg p-1">
+        <div className="flex bg-[#1e293b] rounded-lg p-1 self-start sm:self-auto">
           <button
             onClick={() => setView("monthly")}
             className={`px-3 py-1 rounded-md text-sm ${
@@ -63,12 +60,9 @@ export default function ActivityChart() {
         </div>
       </div>
 
-      {/* Chart */}
-      <div className="w-full h-[300px]">
-        <ResponsiveContainer>
+      <div className="w-full h-[220px] sm:h-[250px]">
+        <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
-            
-            {/* Gradients */}
             <defs>
               <linearGradient id="income" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
@@ -81,14 +75,10 @@ export default function ActivityChart() {
               </linearGradient>
             </defs>
 
-            {/* Axes */}
             <XAxis dataKey="name" stroke="#94a3b8" />
             <YAxis stroke="#94a3b8" />
-
-            {/* Tooltip */}
             <Tooltip />
 
-            {/* Lines */}
             <Area
               type="monotone"
               dataKey="income"
