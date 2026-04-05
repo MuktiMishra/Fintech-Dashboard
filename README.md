@@ -237,6 +237,7 @@ src/
 ├── main.jsx
 └── index.css
 ```
+---
 
 ## How to Clone and Use
 
