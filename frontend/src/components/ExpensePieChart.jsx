@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import {
   PieChart,
   Pie,
@@ -6,18 +7,39 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
+import { useFinance } from "../context/FinanceContext";
 
-const data = [
-  { name: "Food", value: 400 },
-  { name: "Rent", value: 1200 },
-  { name: "Travel", value: 300 },
-  { name: "Shopping", value: 500 },
-  { name: "Bills", value: 200 },
+const COLORS = [
+  "#3b82f6",
+  "#22c55e",
+  "#f59e0b",
+  "#ef4444",
+  "#8b5cf6",
+  "#06b6d4",
+  "#f97316",
+  "#84cc16",
 ];
 
-const COLORS = ["#3b82f6", "#22c55e", "#f59e0b", "#ef4444", "#8b5cf6"];
-
 export default function ExpensePieChart() {
+  const { state } = useFinance();
+  const { transactions } = state;
+
+  const data = useMemo(() => {
+    const expenseMap = {};
+
+    transactions
+      .filter((item) => item.type === "expense")
+      .forEach((item) => {
+        expenseMap[item.category] =
+          (expenseMap[item.category] || 0) + Math.abs(item.amount);
+      });
+
+    return Object.entries(expenseMap).map(([name, value]) => ({
+      name,
+      value,
+    }));
+  }, [transactions]);
+
   return (
     <div className="bg-[#0f172a] p-4 sm:p-6 rounded-2xl text-white w-full h-full">
       <h2 className="text-base sm:text-lg font-semibold mb-6">
@@ -37,7 +59,7 @@ export default function ExpensePieChart() {
               dataKey="value"
             >
               {data.map((entry, index) => (
-                <Cell key={index} fill={COLORS[index % COLORS.length]} />
+                <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
 

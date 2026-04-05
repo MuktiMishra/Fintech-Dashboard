@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   AreaChart,
   Area,
@@ -7,31 +7,60 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { useFinance } from "../context/FinanceContext";
 
-const monthlyData = [
-  { name: "Jan", income: 400, expense: 300 },
-  { name: "Feb", income: 800, expense: 500 },
-  { name: "Mar", income: 600, expense: 400 },
-  { name: "Apr", income: 1200, expense: 700 },
-  { name: "May", income: 400, expense: 300 },
-  { name: "June", income: 800, expense: 500 },
-  { name: "July", income: 600, expense: 400 },
-  { name: "Aug", income: 1200, expense: 700 },
-];
-
-const yearlyData = [
-  { name: "2021", income: 5000, expense: 3000 },
-  { name: "2022", income: 7000, expense: 4000 },
-  { name: "2023", income: 9000, expense: 6000 },
-  { name: "2024", income: 11000, expense: 8000 },
-  { name: "2025", income: 5000, expense: 3000 },
-  { name: "2026", income: 7000, expense: 4000 },
-  { name: "2027", income: 9000, expense: 6000 },
-  { name: "2028", income: 11000, expense: 8000 },
-];
+const monthLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 export default function ActivityChart() {
   const [view, setView] = useState("monthly");
+  const { state } = useFinance();
+  const { transactions } = state;
+
+  const { monthlyData, yearlyData } = useMemo(() => {
+    const monthlyMap = {};
+    const yearlyMap = {};
+
+    transactions.forEach((item) => {
+      const d = new Date(item.date);
+      const monthKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+      const yearKey = String(d.getFullYear());
+
+      if (!monthlyMap[monthKey]) {
+        monthlyMap[monthKey] = {
+          sortKey: monthKey,
+          name: monthLabels[d.getMonth()],
+          income: 0,
+          expense: 0,
+        };
+      }
+
+      if (!yearlyMap[yearKey]) {
+        yearlyMap[yearKey] = {
+          name: yearKey,
+          income: 0,
+          expense: 0,
+        };
+      }
+
+      if (item.type === "income") {
+        monthlyMap[monthKey].income += item.amount;
+        yearlyMap[yearKey].income += item.amount;
+      } else {
+        monthlyMap[monthKey].expense += Math.abs(item.amount);
+        yearlyMap[yearKey].expense += Math.abs(item.amount);
+      }
+    });
+
+    const monthlyData = Object.values(monthlyMap)
+      .sort((a, b) => a.sortKey.localeCompare(b.sortKey))
+      .map(({ sortKey, ...rest }) => rest);
+
+    const yearlyData = Object.values(yearlyMap).sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+
+    return { monthlyData, yearlyData };
+  }, [transactions]);
 
   const data = view === "monthly" ? monthlyData : yearlyData;
 
