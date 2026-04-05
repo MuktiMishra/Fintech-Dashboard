@@ -19,6 +19,7 @@ export default function LandingPage() {
       <div className="absolute bottom-0 left-1/3 h-[320px] w-[320px] rounded-full bg-blue-700/10 blur-[130px]" />
 
       <div className="relative z-10">
+
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center">
@@ -27,20 +28,7 @@ export default function LandingPage() {
             <h1 className="text-2xl font-semibold tracking-tight">Zorvyn</h1>
           </div>
 
-          {/* <div className="hidden md:flex items-center gap-2 rounded-full border border-blue-400/10 bg-blue-500/5 px-2 py-2 backdrop-blur-xl">
-            {["Home", "Bank", "Features", "Pricing", "FAQ"].map((item, i) => (
-              <button
-                key={item}
-                className={`rounded-full px-5 py-2 text-sm transition ${
-                  i === 0
-                    ? "bg-blue-500/15 text-white"
-                    : "text-white/70 hover:bg-blue-500/10 hover:text-white"
-                }`}
-              >
-                {item}
-              </button>
-            ))}
-          </div> */}
+  
 
           <div className="flex items-center gap-3">
             <Link
@@ -121,8 +109,8 @@ export default function LandingPage() {
 
             <div className="relative rounded-[32px] border border-blue-400/10 bg-[#050816]/90 p-4 shadow-2xl shadow-blue-950/40 backdrop-blur-2xl">
               <div className="mb-4 flex items-center gap-3 rounded-2xl border border-blue-400/10 bg-blue-500/[0.03] px-4 py-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-400 to-cyan-500 text-white font-bold">
-                  Z
+                <div className="flex h-10 w-10 items-center justify-center text-white font-bold">
+                  <img src="/zorvyn.png" alt="logo" />
                 </div>
                 <div className="flex-1 rounded-xl bg-black/40 px-4 py-3 text-sm text-white/40 border border-blue-400/5">
                   Search transactions, cards, analytics
