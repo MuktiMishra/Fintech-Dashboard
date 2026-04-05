@@ -2,7 +2,9 @@
 
 Zorvyn is a modern **fintech dashboard UI** built with **React**, **Vite**, **Tailwind CSS**, and **React Router DOM**. It includes a premium landing page, mock authentication flow, dashboard analytics, transactions, insights, and card management screens.
 
-This project is focused on building a clean and responsive frontend experience for a fintech platform.
+**I've deployed it on vercel you can check it out directly at : https://fintech-dashboard-dusky-pi.vercel.app/**
+ 
+Incase it dont't work follow instructions in the readme to clone and run it.
 
 ---
 
