@@ -8,7 +8,7 @@ import {
   YAxis,
   Tooltip,
 } from "recharts";
-import { transactions } from "../data/transactions";
+import { useFinance } from "../context/FinanceContext";
 
 const formatMoney = (value) => `$${Number(value).toFixed(0)}`;
 const formatMoneyExact = (value) => `$${Number(value).toFixed(2)}`;
@@ -48,6 +48,9 @@ const cardIconBg = [
 ];
 
 export default function InsightsPage() {
+  const { state } = useFinance();
+  const { transactions } = state;
+
   const {
     highestCategory,
     currentMonthExpense,
@@ -133,7 +136,7 @@ export default function InsightsPage() {
       monthlyChartData,
       categoryData: sortedCategories,
     };
-  }, []);
+  }, [transactions]);
 
   return (
     <div className="min-h-screen bg-[#020817] text-white p-4 sm:p-5">

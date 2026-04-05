@@ -9,6 +9,7 @@ import LandingPage from "./pages/LandingPage";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import CardsPage from "./pages/CardsPage";
+import { FinanceProvider } from "./context/FinanceContext";
 
 function DashboardLayout({ children }) {
   const [open, setOpen] = useState(false);
@@ -38,6 +39,7 @@ function DashboardLayout({ children }) {
 export default function App() {
   return (
     <BrowserRouter>
+    <FinanceProvider>
       <Routes>
         {/* public pages */}
         <Route path="/" element={<LandingPage />} />
@@ -78,6 +80,7 @@ export default function App() {
           }
         />
       </Routes>
+      </FinanceProvider>
     </BrowserRouter>
   );
 }

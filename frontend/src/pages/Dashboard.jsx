@@ -39,7 +39,8 @@ const stats = [
 const Dashboard = () => {
   return (
     <div className="flex flex-col w-full p-3 sm:p-4">
-      <h1 className="text-lg sm:text-xl font-bold text-white mb-4">Hello Mukti!</h1>
+      <h1 className="text-xl sm:text-lg font-bold text-white mb-2">Hello Mukti!</h1>
+      <h1 className="text-lg sm:text-base text-gray-500 mb-4">Here's your finance dashboard</h1>
 
       {/* Top cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 text-white">
@@ -57,12 +58,12 @@ const Dashboard = () => {
                 <div
                   className={`h-12 w-12 rounded-2xl flex items-center justify-center ${item.iconBox}`}
                 >
-                  <Icon size={22} />
+                  <Icon size={20} />
                 </div>
               </div>
 
               <div className="mt-6">
-                <h2 className="text-lg sm:text-base font-semibold tracking-tight">
+                <h2 className="text-xl sm:text-base font-semibold tracking-tight">
                   {item.value}
                 </h2>
 
